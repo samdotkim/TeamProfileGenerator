@@ -1,33 +1,29 @@
-// External packages
+// external npm packages
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-
-// Internal modules
+// internal modules
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-
 const input = require('./input');
 const render = require('./lib/htmlRenderer');
 
-
 // Array to contain all employee objects to render HTML
 const employees = [];
-
 
 // ------------------------------------------------------------------
 
 // Function to create a manager object
 async function createManager() {
-    let managerResponses = await inquirer.prompt(input.manager);
+    let managerInputs = await inquirer.prompt(input.manager);
 
     // Create new object from class and add to employee array
     let newManager = new Manager
-        (managerResponses.mgrName,
-            managerResponses.mgrId,
-            managerResponses.mgrEmail,
-            managerResponses.mgrOffice);
+        (managerInputs.mgrName,
+            managerInputs.mgrId,
+            managerInputs.mgrEmail,
+            managerInputs.mgrOffice);
 
     employees.push(newManager);
 
@@ -58,27 +54,27 @@ async function confirmEmployee() {
 async function createEmployee() {
 
     // Would you like to add an Engineer or Intern?
-    let employeeRole = await inquirer.prompt(input.employee);
+    let employeeTitle = await inquirer.prompt(input.employee);
 
-    switch (employeeRole.empRole) {
+    switch (employeeTitle.empTitle) {
         case 'Engineer':
-            let engResponses = await inquirer.prompt(input.engineer);
+            let engInputs = await inquirer.prompt(input.engineer);
             let newEngineer = new Engineer
-                (engResponses.engName,
-                    engResponses.engId,
-                    engResponses.engEmail,
-                    engResponses.engGithub);
+                (engInputs.engName,
+                    engInputs.engId,
+                    engInputs.engEmail,
+                    engInputs.engGithub);
             employees.push(newEngineer);
             console.log("Thanks! We've added a new engineer to the team: ", newEngineer);
             await confirmEmployee();
             break;
         case 'Intern':
-            let internResponses = await inquirer.prompt(input.intern);
+            let internInputs = await inquirer.prompt(input.intern);
             let newIntern = new Intern
-                (internResponses.internName,
-                    internResponses.internId,
-                    internResponses.internEmail,
-                    internResponses.internSchool);
+                (internInputs.internName,
+                    internInputs.internId,
+                    internInputs.internEmail,
+                    internInputs.internSchool);
             employees.push(newIntern);
             console.log("Thanks! We've added a new intern to the team: ", newIntern);
             await confirmEmployee();
@@ -109,7 +105,6 @@ async function init() {
 
     try {
         /* After the user has input all employees desired, call the render function and pass an array containing all employee objects.
-
         The render function will generate and return a block of HTML including templated divs for each employee. */
         let renderedHTML = render(employees);
 

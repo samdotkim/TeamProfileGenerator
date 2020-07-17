@@ -36,11 +36,11 @@ h1 {
     min-width: 275px;
     max-width: 325px;
     margin: 50px 25px;
-    box-shadow: 12px 12px #888888;
+    box-shadow: 12px 12px #261336;
 }
 
 .card-header {
-    background-color:#A0DDEE;
+    background-color:#fff065;
     border-bottom-style: none;
     height: 130px;
     padding: 20px;

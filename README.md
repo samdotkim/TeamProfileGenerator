@@ -6,7 +6,9 @@ This is a Node.js command line application that takes in user input for details 
 
 Testing is a key element of this application to ensure proper functionality by using a collection of Jest unit tests.
 
-![Generated team webpage](images/teampage-generator.png)
+![Generated team webpage](demo.gif)
+
+The demo above creates an HTML page which can be viewed here: 
 
 
 ## Usage Instructions
@@ -19,8 +21,6 @@ The CLI will prompt the user for information regarding the team manager and then
 
 After user has inputted information for the team and presses submit, the application will generate an HTML file named 'index' inside the 'docs/' directory that displays a styled team roster based on the user input.  Each team member will display their name, title, ID, and title-specific property.
 
-
-![Gif demo of team-page-generator CLI]
 
 ## Installation
 
@@ -35,67 +35,12 @@ The folder structure of the application is as follows:
 
 ```
 docs/          // Rendered HTML output that will appear on GitHub pages
-lib/           // Employee classes as well as helper code to generate HTML
 html/          // Templates for main HTML <body> and employee <div>s
+images/        // Images used on the GitHub repo
+lib/           // Employee classes as well as helper code to generate HTML
 test/          // Jest tests
 input.js       // Inquirer inputs
 app.js         // Runs the application and main functions
 ```
 
-The HTML pages are contained inside the templates/ folder.  The main.html is the main template where all the 
-
-The `templates/` directory contains the `main.html` template for the main `<head>` and `<body`> as well as multiple HTML templates with placeholder characters that are identified with `Regex` for where dynamic markup begins and ends for each type of employee: 
-
-  * `engineer.html`
-  
-  * `intern.html`
-  
-  * `manager.html`
-
-
-### Classes
-
-This application utilizes JavaScript's brand of object-oriented programming by using constructors, the prototype chain, and the `ES6` pattern of `class`. 
-
-The different employee types, `Manager`, `Engineer`, and `Intern`, inherit methods and properties from a base class of `Employee`.
-
-The first class is an `Employee` parent class with the following properties and methods:
-
-  * name
-  * id
-  * email
-  * role
-  * getName()
-  * getId()
-  * getEmail()
-  * getRole() // Returns 'Employee'
-
-The other three classes extend `Employee`. In addition to `Employee`'s properties and methods, `Manager` also has:
-
-  * officeNumber
-  * getRole() // Overridden to return 'Manager'
-
-In addition to `Employee`'s properties and methods, `Engineer` also has:
-
-  * github  // GitHub username
-  * getGithub()
-  * getRole() // Overridden to return 'Engineer'
-
-In addition to `Employee`'s properties and methods, `Intern` also has:
-
-  * school 
-  * getSchool()
-  * getRole() // Overridden to return 'Intern'
-
-### Test-Driven Development (TDD)
-
-The development of this application focused on writing tests and ensuring application features passed to ensure code was understandable and maintainable. The methods on the classes were also developed to be as simple and pure as possible so that they are easier to test. The suite of `Jest` tests for the above classes in the `tests/` directory currently pass. Ultimately, these tests serve as fail-safes for future maintenance of the code base.
-
-### Original Comps
-
-Below were the original comps that mocked up what the application might look like.
-
-![Employee Summary 1](images/OOP-demo-1.png)
-![Employee Summary 2](images/OOP-demo-2.png)
-
-The styling of the generated HTML has since then been customized. Cheers!
+The HTML pages are contained inside the html/ folder.  The main.html is the main template where all the other elements get generated.  Regex is used to create dynamic markup for each type of employee: Engineer, Intern, Manager
