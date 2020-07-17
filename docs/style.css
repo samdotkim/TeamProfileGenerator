@@ -1,0 +1,54 @@
+body {
+   font-family: 'Work Sans', sans-serif;
+   color:#18202C;
+   padding-bottom: 75px;
+   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+   background-size: 400% 400%;
+   animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+   0% {
+       background-position: 0% 50%;
+   }
+   50% {
+       background-position: 100% 50%;
+   }
+   100% {
+       background-position: 0% 50%;
+   }
+}
+
+h1 {
+    font-size: 60px;
+}
+
+#logo {
+    margin-right: 30px;
+  }
+
+.jumbotron {
+    border-radius: 0;
+}
+
+.employee-card {
+    min-width: 275px;
+    max-width: 325px;
+    margin: 50px 25px;
+    box-shadow: 12px 12px #888888;
+}
+
+.card-header {
+    background-color:#A0DDEE;
+    border-bottom-style: none;
+    height: 130px;
+    padding: 20px;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 18px;
+}
