@@ -1,7 +1,7 @@
 {
   "name": "html-team-generator",
   "version": "1.0.0",
-  "description": "Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person",
+  "description": "Node.js command line application that takes in user input for details regarding different employees or managers to generate a team profile page with HTML.",
   "main": "app.js",
   "directories": {
     "lib": "lib",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/connietran-dev/team-generator.git"
+    "url": "git+https://github.com/samdotkim/TeamProfileGenerator.git"
   },
-  "author": "Connie Tran",
+  "author": "samdotkim",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/connietran-dev/team-generator/issues"
+    "url": "https://github.com/samdotkim/TeamProfileGenerator/issues"
   },
-  "homepage": "https://github.com/connietran-dev/team-generator",
+  "homepage": "https://github.com/samdotkim/TeamProfileGenerator",
   "dependencies": {
     "inquirer": "^6.3.1"
   },

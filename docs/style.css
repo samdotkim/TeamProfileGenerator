@@ -28,6 +28,7 @@ h1 {
   }
 
 .jumbotron {
+    margin-top: 60px;
     border-radius: 0;
 }
 

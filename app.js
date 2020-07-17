@@ -1,6 +1,7 @@
 // External packages
-const fs = require('fs');
 const inquirer = require('inquirer');
+const fs = require('fs');
+
 
 // Internal modules
 const Manager = require('./lib/Manager');
@@ -19,7 +20,7 @@ const employees = [];
 
 // Function to create a manager object
 async function createManager() {
-    let managerResponses = await inquirer.prompt(questions.manager);
+    let managerResponses = await inquirer.prompt(input.manager);
 
     // Create new object from class and add to employee array
     let newManager = new Manager
@@ -38,7 +39,7 @@ async function createManager() {
 async function confirmEmployee() {
 
     // Would you like to add another team member?
-    let confirmEmployee = await inquirer.prompt(questions.create);
+    let confirmEmployee = await inquirer.prompt(input.create);
 
     switch (confirmEmployee.confirmEmp) {
         case false:
@@ -57,11 +58,11 @@ async function confirmEmployee() {
 async function createEmployee() {
 
     // Would you like to add an Engineer or Intern?
-    let employeeRole = await inquirer.prompt(questions.employee);
+    let employeeRole = await inquirer.prompt(input.employee);
 
     switch (employeeRole.empRole) {
         case 'Engineer':
-            let engResponses = await inquirer.prompt(questions.engineer);
+            let engResponses = await inquirer.prompt(input.engineer);
             let newEngineer = new Engineer
                 (engResponses.engName,
                     engResponses.engId,
@@ -72,7 +73,7 @@ async function createEmployee() {
             await confirmEmployee();
             break;
         case 'Intern':
-            let internResponses = await inquirer.prompt(questions.intern);
+            let internResponses = await inquirer.prompt(input.intern);
             let newIntern = new Intern
                 (internResponses.internName,
                     internResponses.internId,
